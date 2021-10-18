@@ -12,19 +12,20 @@
 
 
 class Road:
-    def __init__(self, **kwargs):
-        """weight 1 м.кв при толщине 1 см. равен 25 кг """
-        self._length = int(kwargs['length'])
-        self._width = int(kwargs['width'])
-        self._depth = int(kwargs['depth'])
-        self._weight = 25
+    def __init__(self, length, width, depth, weigh=15):
+        """
+        weight - расчетный вес асфальта 1 м.кв при толщине 1 см. по умолчанию равен 15 кг
+        """
+        self._length = length
+        self._width = width
+        self._depth = depth
+        self._weight = weigh
 
     def mass(self):
         total_mass = self._length * self._width * self._weight * self._depth / 1000
         return f'{int(total_mass):0,}'.replace(",", " ")
 
 
-road = Road(length=input('Длина дороги (м): '),
-            width=input('Ширина дороги (м): '),
-            depth=input('Толщина дороги (см): '))
+road = Road(2000, 50, 5, 25)  # 12500
+# road = Road(2000, 50, 5)  # 7500
 print(f'Для покрытия всей дороги неободимо {road.mass()} т. асфальта')

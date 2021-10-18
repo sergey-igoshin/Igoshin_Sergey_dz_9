@@ -12,11 +12,9 @@
 
 
 class Worker:
-    def __init__(self, *args):
-        self.name = args[0]
-        self.surname = args[1]
-        self.position = args[2]
-        self._income = {"wage": int(args[3]), "bonus": int(args[4])}
+    def __init__(self, *args, **kwargs):
+        self.name, self.surname, self.position = args
+        self._income = kwargs
 
 
 class Position(Worker):
@@ -34,7 +32,7 @@ info = Position(
     input('Имя: '),
     input('Фамилия: '),
     input('Должность: '),
-    input('Зарплата: '),
-    input('Премия: ')
+    wage=int(input('Зарплата: ')),
+    bonus=int(input('Премия: '))
 )
 print(info.get_position(), info.get_full_name(), info.get_total_income())

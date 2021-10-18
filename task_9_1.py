@@ -22,10 +22,12 @@ class TrafficLight:
 
     def running(self, *args):
         """Функция принимает три аргумента продолжительности времени в секундах"""
+
         for key, val in TrafficLight.__color.items():
             try:
-                print(val)
-                sleep(args[key])
+                if args[key]:
+                    print(val)
+                    sleep(args[key])
             except IndexError as e:
                 print(f'Ошибка {e}')
 
