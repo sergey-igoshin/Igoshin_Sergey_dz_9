@@ -15,10 +15,7 @@ turn(direction), которые должны сообщать, что машин
 class Car:
 
     def __init__(self, *args):
-        self.speed = args[0]
-        self.color = args[1]
-        self.name = args[2]
-        self.is_police = args[3]
+        self.speed, self.color, self.name, self.is_police = args
 
     def go(self):
         return 'начала движение,'
