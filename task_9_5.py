@@ -8,31 +8,32 @@
 
 
 class Stationery:
-    def __init__(self, *args):
-        self.title = args[0]
+    def __init__(self, title):
+        self.title = title
 
     def draw(self):
-        print(f'Запуск отрисовки')
+        return self.title
 
 
 class Pen(Stationery):
     def draw(self):
-        return f'Запуск отрисовки {self.title}'
+        return self.title
 
 
 class Pencil(Stationery):
     def draw(self):
-        return f'Запуск отрисовки {self.title}'
+        return self.title
 
 
 class Handle(Stationery):
     def draw(self):
-        return f'Запуск отрисовки {self.title}'
+        return self.title
 
 
+stat = Stationery('Запуск отрисовки')
 pen = Pen('ручка')
 pencil = Pencil('карандаш')
 handle = Handle('маркер')
-print(pen.draw())
-print(pencil.draw())
-print(handle.draw())
+print(stat.draw(), pen.draw())
+print(stat.draw(), pencil.draw())
+print(stat.draw(), handle.draw())
