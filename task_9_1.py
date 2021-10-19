@@ -14,16 +14,17 @@ from time import sleep
 
 
 class TrafficLight:
-    __color = {
-        0: 'Красный',
-        1: 'Желтый',
-        2: 'Зеленый'
-    }
+    def __init__(self):
+        self.__color = {
+            0: 'Красный',
+            1: 'Желтый',
+            2: 'Зеленый'
+        }
 
     def running(self, *args):
         """Функция принимает три аргумента продолжительности времени в секундах"""
 
-        for key, val in TrafficLight.__color.items():
+        for key, val in self.__color.items():
             try:
                 if args[key]:
                     print(val)
